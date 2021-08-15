@@ -1,26 +1,26 @@
 module.exports = (sequelize, Datatypes) => {
-    const Todo = sequelize.define('Todos', {
+    const Todo = sequelize.define('Todo', {
         id: {
-            type: sequelize.INTEGER,
+            type: Datatypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
             allowNull: false
         },
         name: {
-            type: sequelize.STRING,
+            type: Datatypes.STRING,
             allowNull: false
         },
         description: {
-            type: sequelize.TEXT,
+            type: Datatypes.TEXT,
             allowNull: false
         },
         createdAt: {
-            type: sequelize.DATE,
+            type: Datatypes.DATE,
             field: 'created_at',
             allowNull: false
         },
         updatedAt: {
-            type: sequelize.DATE,
+            type: Datatypes.DATE,
             field: 'updated_at',
             allowNull: false
         }
