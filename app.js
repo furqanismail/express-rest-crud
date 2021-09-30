@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/todo', verifyToken, todosRouter);
-app.use('/auth', usersRouter);
+app.use('/api/v1/todo', verifyToken, todosRouter);
+app.use('/api/v1/auth', usersRouter);
 
 module.exports = app;
