@@ -7,6 +7,8 @@ const logger = require('morgan');
 const todosRouter = require('./routes/todo');
 const usersRouter = require('./routes/user');
 
+const verifyToken = require('./middlewares/verifyToken')
+
 const app = express();
 
 app.use(logger('dev'));
@@ -15,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/todo', todosRouter);
+app.use('/todo', verifyToken, todosRouter);
 app.use('/auth', usersRouter);
 
 module.exports = app;
