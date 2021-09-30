@@ -23,6 +23,7 @@ const verifyToken = require('./middlewares/verifyToken')
 const app = express();
 
 app.use(helmet())
+app.enable('trust proxy')
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
