@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
 
     if(validate.length){
         return res.status(400).json({
-            status: 'success',
+            status: 'error',
             message: validate
         })
     }
@@ -32,11 +32,11 @@ module.exports = async (req, res) => {
     }
 
     const password = await bcrypt.hash(req.body.password, 10)
+    console.log(password)
     const data = {
         password,
         email: req.body.email,
         name: req.body.name,
-        password: req.body.password,
         address: req.body.address,
     }
 
